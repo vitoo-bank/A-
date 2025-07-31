@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 80% 5%; /* Deeper, richer purple-black */
+    --foreground: 210 40% 98%; /* White for text */
+    --card: 260 70% 10%; /* Slightly lighter card background */
+    --card-foreground: 210 40% 98%;
+    --popover: 260 70% 10%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 270 70% 60%; /* Vibrant purple for primary actions */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 260 60% 20%; /* Darker secondary for contrast */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 260 60% 20%;
+    --muted-foreground: 260 30% 70%; /* Lighter purple for muted text */
+    --accent: 270 70% 60%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 260 50% 30%; /* Purple border */
+    --input: 260 50% 30%;
+    --ring: 270 70% 60%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.75rem; /* Slightly larger radius for softer corners */
+  }
+
+  .dark {
+    --background: 260 80% 5%;
+    --foreground: 210 40% 98%;
+    --card: 260 70% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 260 70% 10%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 270 70% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 260 60% 20%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 260 60% 20%;
+    --muted-foreground: 260 30% 70%;
+    --accent: 270 70% 60%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 260 50% 30%;
+    --input: 260 50% 30%;
+    --ring: 270 70% 60%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    direction: rtl;
+    font-family: "Vazir", "Tahoma", sans-serif;
+    /* Subtle noise texture for modern feel */
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239133ea' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zm12 12V8h-2v4h-4v2h4v4h2v-4h4v-2h-4zM12 34v-4H10v4H6v2h4v4h2v-4h4v-2h-4zm0-30V0H10v4H6v2h4v4h2V6h4V4h-4zm24 24v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0 12v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm12-12v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0 12v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM24 0v-4h-2v4h-4v2h4v4h2V6h4V4h-4zm0 12v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0 12v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0 12v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0 12v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM0 42v-4H-2v4H-6v2h4v4h2v-4h4v-2h-4zm0-12v-4H-2v4H-6v2h4v4h2v-4h4v-2h-4zm0-12v-4H-2v4H-6v2h4v4h2v-4h4v-2h-4zm0-12v-4H-2v4H-6v2h4v4h2v-4h4v-2h-4zm48 0v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-12v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM0 0v-4H-2v4H-6v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+/* Custom styles for RTL support */
+.rtl {
+  direction: rtl;
+}
+
+/* Loading cube animations */
+@keyframes rotate {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.cube-container {
+  perspective: 1000px;
+}
+
+.cube {
+  transform-style: preserve-3d;
+  animation: rotate 5s infinite linear;
+}
+
+/* New/Enhanced animations for modern feel */
+@keyframes pulse-slow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s infinite ease-in-out;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+  }
+}
+
+.animate-glow {
+  animation: glow 3s infinite alternate;
+}
